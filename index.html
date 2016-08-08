@@ -1,0 +1,76 @@
+<!doctype html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 col-md-offset-4">
+			<div class="text-right">
+				<h1>Nickole Halpine</h1>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div id="nav" class="col-md-2 col-md-offset-2">
+			<div class="text-right">
+				<a href="javascript:viewSection('paint')"><h2>Paint</h2></a>
+				<a href="javascript:viewSection('prints')"><h2>Prints</h2></a>
+				<a href="javascript:viewSection('nickole')"><h2>Nickole</h2></a>
+				<a href="javascript:viewSection('contact')"><h2>Contact</h2></a>
+			</div>
+		</div>
+		<div id="scrollable" class="col-md-5 pre-scrollable" >
+			<section id="paint" class="cd-section visible">
+				<div><p>Mauris sit amet blandit erat. Nulla a risus vestibulum, varius mi vel, mollis tortor. Vestibulum eleifend tortor vel nisi vehicula, quis tristique libero cursus. Aliquam nibh sem, mollis ac ex sed, iaculis facilisis eros. Proin tempor ultrices diam, eget fringilla mi lacinia et. Mauris metus ex, rhoncus id diam iaculis, molestie sollicitudin mi. Pellentesque convallis tortor molestie gravida aliquam. Curabitur condimentum semper tristique. Quisque fringilla purus sed sem aliquet feugiat.</p>
+				</div>
+			</section>
+			<section id="prints" class="cd-section">
+				<div></div>
+			</section>
+			<section id="nickole" class="cd-section">
+				<div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed lorem eget metus lobortis pellentesque. Pellentesque varius sem orci. Nulla eget imperdiet enim. Ut ut molestie leo. Curabitur posuere, massa quis laoreet consequat, lectus felis convallis dolor, at scelerisque velit justo quis risus. Nam lacinia, lectus laoreet condimentum vulputate, mauris dui vulputate turpis, vitae sollicitudin libero leo in metus. Suspendisse sed sem ultricies, semper lacus viverra, imperdiet justo.</p>
+					<p>Mauris sit amet blandit erat. Nulla a risus vestibulum, varius mi vel, mollis tortor. Vestibulum eleifend tortor vel nisi vehicula, quis tristique libero cursus. Aliquam nibh sem, mollis ac ex sed, iaculis facilisis eros. Proin tempor ultrices diam, eget fringilla mi lacinia et. Mauris metus ex, rhoncus id diam iaculis, molestie sollicitudin mi. Pellentesque convallis tortor molestie gravida aliquam. Curabitur condimentum semper tristique. Quisque fringilla purus sed sem aliquet feugiat.</p>
+				</div>
+			</section>
+			<section id="contact" class="cd-section">
+				<div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed lorem eget metus lobortis pellentesque. Pellentesque varius sem orci. Nulla eget imperdiet enim. Ut ut molestie leo. Curabitur posuere, massa quis laoreet consequat, lectus felis convallis dolor, at scelerisque velit justo quis risus. Nam lacinia, lectus laoreet condimentum vulputate, mauris dui vulputate turpis, vitae sollicitudin libero leo in metus. Suspendisse sed sem ultricies, semper lacus viverra, imperdiet justo.</p>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+<script>
+  
+    //DOM elements
+    var sectionsAvailable = $('.cd-section');
+
+function viewSection(section,event) {
+	console.log("Hello World");
+	//console.log(sectionsAvailable);
+	var visibleSection = sectionsAvailable.filter('.visible');
+	$('#'+section).velocity("scroll",{container:$("#scrollable"),duration:5000});
+	visibleSection.removeClass('visible').children('div').velocity({translateY: '0', opacity: '0', scale: '1', rotateX: '0', boxShadowBlur: '0'}, 10000, 'ease');
+}
+</script>
+<style>
+.pre-scrollable{
+	overflow:hidden;
+}
+.cd-section{
+	height:100vh;
+}
+.pre-scrollable{
+	max-height:80vh;
+}
+</style>
+</body>
+</html>
